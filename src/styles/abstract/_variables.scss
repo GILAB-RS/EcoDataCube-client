@@ -1,0 +1,65 @@
+$white_color: #fff;
+$black_color: #000;
+// $black_color: #1A513C;
+$primary_color: rgba($black_color, .6);
+$selected_color: rgba($black_color, .8);
+$hover_color: rgba($white_color, .3);
+
+$description_color: rgba($white_color, .6);
+
+$active_color: darken(#465362, 5);
+$header_color: #0E9F99;
+// $selected_color: #F4282C;
+$graph_background: #1A1D24;
+
+$yellow_color: #FFC642;
+$green_color: #1E8B24;
+$primary_color_dark: darken($primary_color, 10);
+$primary_color_light: lighten($primary_color, 10);
+
+
+
+$danger_color: #F4282C;
+$success_color: green;
+$warning_color: orange;
+
+$font_size: 62.5%;
+
+$link_color: #EB4850;
+
+a {
+	color: $link_color;
+	
+	&:hover {
+		color: lighten($link_color, 10);
+	}
+}
+
+.text_danger {
+	color: $danger_color;
+}
+
+.text_white {
+	color: $white_color !important;
+}
+
+.text_description {
+	color: $description_color !important;
+}
+
+.text_center {
+	text-align: center;
+}
+
+.text_link {
+	color: $link_color !important
+}
+
+.text_italic {
+	font-style: italic;
+}
+
+
+.text_bold {
+	font-weight: bold;
+}

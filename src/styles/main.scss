@@ -1,0 +1,80 @@
+//ABSTRACT
+@import 'abstract/variables';
+
+//VENDOR
+@import 'vendor/ol';
+@import 'vendor/semantic';
+@import 'vendor/slider';
+@import 'vendor/twitter';
+@import 'vendor/rc-dialog';
+
+//ANIMATIONS
+@import  'animations/animations';
+
+//COMPONENTS
+@import 'components/app';
+@import 'components/toolbar';
+@import 'components/timeline';
+@import 'components/map';
+@import 'components/sidebar';
+@import 'components/legend';
+@import 'components/search';
+@import 'components/datapanel';
+
+#wwd-results {
+  width: 100% !important;
+  height: 100%;
+}
+
+#map {
+  background-color: black;
+  height: 100%;
+}
+
+.wwd-map {
+  position: absolute;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden !important;
+}
+
+.wwd-map:not(.wwd_3d),
+.cesium-map:not(.geoh-cesium) {
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.modal-bookmarks-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba($white_color, 0.7);
+  position: sticky;
+  top: 0;
+  color: $white_color;
+
+  &::placeholder {
+    color: $white_color;
+  }
+}
+
+.bookmark-body {
+  overflow: hidden;
+}
+
+.bookmark-submit {
+  float: right;
+  margin-top: 10px;
+}
+
+.bookmark-existing-warning {
+  color: #d01f1f;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: bold;
+}

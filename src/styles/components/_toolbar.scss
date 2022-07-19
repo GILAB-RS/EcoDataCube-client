@@ -1,0 +1,35 @@
+.toolbar-container {
+	position: absolute;
+	right: 0;
+	top: .7rem;
+	background: $primary_color;
+	z-index: 5;
+	transition: .2s transform linear;
+
+	&.opened {
+		transform: translateX(-300px);
+	}
+
+
+
+	.ui.buttons {
+		button {
+			background: transparent;
+			border-radius: 0 !important;
+
+			i {
+				color: #fff;
+			}
+
+			&.active {
+				background: rgba($selected_color,.5) !important;
+			}
+
+
+			&:hover {
+				background: rgba($selected_color,.5);
+			}
+		}
+	}
+
+}

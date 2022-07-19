@@ -1,0 +1,81 @@
+@import '~rc-dialog/assets/index.css';
+.about-modal {
+	.rc-dialog-body {
+		padding: 7px !important;
+	}
+}
+.rc-dialog {
+	border-radius: 0;
+	.rc-dialog-header {
+		background: $selected_color !important;
+		border: none;
+		color: #fff;
+		border-radius: 0;
+
+	}
+	.rc-dialog-content {
+		background: $selected_color !important;
+		border-radius: 0;
+
+
+	}
+
+	
+
+	table, td, tr, th {
+		background: transparent !important;
+		color: #fff !important;
+	}
+
+	.rc-dialog-close-x {
+		color: #fff !important;
+	}
+
+	.about-content { 
+		ul {
+			li {
+				font-size: 11px;
+			}
+		}
+		p.text_white {
+			font-size: 12px;
+		}
+
+
+		code {
+			padding: 0 20px;
+			display: block;
+		}
+
+		.ui.tabular.menu {
+			background: transparent !important;
+			overflow: hidden;
+			width: 100%;
+
+			.item {
+				border: none;
+				display: block;
+				background-color: transparent;
+				color: darken($white_color, 50);
+				white-space: nowrap;
+				text-overflow: ellipsis !important;
+				overflow: hidden;
+				width: auto !important;
+				padding: 10px 7px;
+				
+				&.active {
+					border: none;
+					color: $white_color;
+				}
+			}
+
+
+		}
+
+		.ui.bottom.segment.tab {
+			border-radius: 0;
+			background: transparent;
+			border: none;
+		}
+	}
+}

@@ -1,0 +1,143 @@
+@keyframes fadeIn {
+  from {opacity: 0;}
+
+  to {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+
+  to {opacity: 0; }
+}
+
+@keyframes fadeOut2 {
+  0% {opacity: 1;}
+  99% {opacity: 0; height: 120px}
+  100% {height: 0;}
+}
+
+@keyframes fadeSlideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px)
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+ 
+}
+
+@keyframes fadeSlideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px)
+  }
+  
+  to {
+    opacity: 1;
+    transform: translate(0)
+  }
+
+}
+
+@keyframes fadeSlideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes fadeSlideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes fadeSlideToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0)
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(60px)
+  }
+}
+
+@keyframes infiniteTextRight {
+  from { transform: translateX(-300px)}
+  to {transform: translateX(300px)}
+}
+
+
+@keyframes sliderUp {
+  from { transform: translateY(0)}
+  to {transform: translateY(-7rem)}
+}
+
+
+@keyframes teaserHide {
+  from { height: 53px}
+  to {height: 0px}
+}
+
+@keyframes teaserShow {
+  from { height: 0px}
+  to {height: 53px}
+}
+
+@keyframes halfScreenHide {
+  from { height: 220px}
+  to {height: 0px}
+}
+
+
+@keyframes halfScreenShow {
+  from { height: 0px}
+  to {
+    height: 220px; 
+    height: calc(var(--vh, 1vh) * 100);
+    height: auto;
+  }
+}
+
+
+
+@keyframes fullScreenShow {
+  from { height: 220px}
+  to {height: calc(var(--vh, 1vh) * 100 - 65px - 69px)}
+}
+
+
+@keyframes fullScreenHide {
+  from {height: calc(var(--vh, 1vh) * 100  - 65px - 69px)}
+  to {height: 220px}
+}
+
+
+@keyframes pulse {
+  0% {transform: scale(1)}
+  50% {transform: scale(1.02, 1.1);}
+  100% {transform: scale(1, 1);}
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {transform: rotate(180deg);}
+}

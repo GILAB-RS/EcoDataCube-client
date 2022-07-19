@@ -1,0 +1,56 @@
+
+.horizontal-slider {
+	padding-top: 17.5px;
+	width: 100%;
+}
+
+.track {
+	// width: 100%;
+	padding: 2.5px;
+	background: white;
+	border-radius: 10px;
+}
+
+.thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	background: white;
+	box-shadow: 0 0 1px 1px rgba(black, .6);
+	border: none;
+	outline: none;
+	transform: translateY(-40%);
+	cursor: pointer;
+	
+	i {
+		color: rgba(#000, .9);
+		line-height: 20px;
+		width: 20px;
+		height: 20px;
+		
+		&::before {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&.comparison-thumb {
+		width: 34px;
+		height: 34px;
+		background: lighten(#000, 10);
+		box-shadow: none !important;
+
+		i {
+			color: #fff;
+			line-height: 34px;
+			width: 34px;
+			height: 34px;
+			font-size: 1.6rem !important;
+
+			&::before {
+				width: 34px;
+				height:  34px;
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+@import '~ol/ol.css';
+
+.ol-layer {
+	&.grayscale {
+		filter: grayscale(100%);
+	}
+}
+
+.ol-zoom {
+	display: none;
+}
+
+
+.ol-attribution {
+	display: none;
+}
+
+.ol-scale-line {
+	position: absolute;
+	bottom: calc(29px + .7rem);
+	left: .7rem;
+	background: $primary_color;
+	border-radius: 0;
+	padding: 5px;
+
+	.ol-scale-line-inner {
+		font-size: 13px !important;
+	}
+
+}
+
+@media (max-width: 768px) {
+	.ol-scale-line {
+		left: auto;
+		right: .7rem;
+		bottom: 40px;
+		background: transparent;
+		z-index: 2000 !important;
+		display: none;
+	}
+}

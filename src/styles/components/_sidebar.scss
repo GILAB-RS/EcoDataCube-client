@@ -1,0 +1,398 @@
+.sidebar-container {
+	position: absolute;
+	height: calc(100% - 25px);
+	width: 300px;
+	right: -300px;
+	top: 0;
+	overflow-y: auto;
+
+	background: $selected_color;
+	z-index: 10;
+	transition: .2s all linear !important;
+
+
+	&.opened {
+		transform: translateX(-300px);
+	}
+
+	.twitter-container {
+		transition: .2s linear opacity;
+
+		.twitter-error {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+
+			.twitter-error-message {
+				color: $danger_color !important;
+				font-weight: bold;
+			}
+
+			i {
+				color: rgba($white_color, .7);
+				cursor: pointer;
+				transition: .2s transform linear;
+
+				&:hover {
+					transform: rotate(360deg);
+				}
+			}
+		}
+
+		&.hidden {
+			opacity: 0;
+		}
+	}
+
+	.sidebar-panel {
+		padding: .7rem;
+
+		.social-btns {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+			align-items: center;
+			button {
+				background: transparent !important;
+				&:first-child {
+					i {
+						color: $description_color;
+						font-size: 25px;
+						padding-top: 5px;
+					}
+				}
+				padding: 0 !important;
+				outline: none !important;
+				border: none !important;
+			}
+		}
+
+		&.help-panel {
+			.shortcuts-container {
+	
+
+				td {
+					color: $white_color;
+					padding: 5px;
+					padding-left: 20px;
+
+
+					&:first-child {
+						color: $selected_color;
+						background: $white_color;
+						border-radius: 100%;
+						width: 28px;
+						text-align: center;
+						font-weight: bold;
+						padding: 0;
+						// padding-right: 20px;
+					}
+				}
+			}
+		}
+
+		&.gitlab-panel {
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			.issues-title {
+				&:hover {
+					h2, p {
+						color: $link_color !important;
+					}
+				}
+			}
+		
+
+			.issue-item {
+				padding: 12px 5px;
+				cursor: pointer;
+
+				&:hover {
+					background: $hover_color;
+				}
+				p:first-child {
+					margin: 2px;
+				}
+				
+				p:nth-child(2) {
+					word-break: break-all;
+				}
+
+				p:last-child {
+					font-style: italic;
+				}
+			}
+		}
+
+		&.layers-panel {
+			animation: fadeIn .2s .2s linear both;
+			padding: 0;
+
+			.opacity-container {
+				position: sticky;
+				top: 57px;
+				// background: #2B2B2B;
+			}
+
+			.search-layers-container {
+				position: sticky;
+				top: 0px;
+				padding: 20px 10px 10px 10px;
+				// background: #2B2B2B;
+
+				
+			}
+
+			.search-layers {
+				width: 100%;
+				border: none;
+				background: transparent;
+				outline: none;
+				padding: 5px 0;
+				border-bottom: 1px solid rgba($white_color, .7);
+				position: sticky;
+				top: 0;
+				color: $white_color;
+			
+
+				&::placeholder {
+					color: $white_color;
+				}
+			}
+
+			.opacity-value-thumb {
+				font-size: 11px;
+				color: #000;
+				font-weight: bold;
+				width: 35px;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+			}
+
+			.ui.toggle.checkbox input:checked~.box:before, .ui.toggle.checkbox input:checked~label:before {
+				background-color: rgba(#fff, .5) !important;
+			}
+		
+			.ui.toggle.checkbox input:checked~.box:after, .ui.toggle.checkbox input:checked~label:after {
+				color: #fff !important;
+			}
+			.ui > label, .ui.toggle.checkbox input:focus:checked~.box, .ui.toggle.checkbox input:focus:checked~label {
+				color: #fff !important;
+			}
+			.ui.toggle.checkbox input:checked~.box, .ui.toggle.checkbox input:checked~label {
+				color: #fff !important;
+			}
+		
+			.ui.toggle.checkbox .box:before, .ui.toggle.checkbox label:before {
+				background-color: rgba(#fff, .5)
+			}
+		
+			.ui.toggle.checkbox input:focus~.box:before, .ui.toggle.checkbox input:focus~label:before {
+				background-color: rgba(#fff, .5)
+			}
+
+			ul {
+				list-style: none !important;
+				padding: 0;
+				max-height: 400px;
+				overflow-y: auto;
+
+				li {
+					padding: 10px 5px;
+				margin-right: 5px;
+				margin-left: 5px;
+				color: #fff;
+				list-style: none;
+				cursor: pointer;
+
+					.layer-title, .layer-description {
+						color: rgba($white_color, 1);
+						font-weight: bold;
+						margin: 0;
+					}
+
+					.layer-description {
+						color: $description_color;
+					}
+
+					&.active {
+						background:rgba(#fff, .3);
+					}
+	
+					&:hover {
+						background:rgba(#fff, .3);
+						&.no-hover {
+							background: transparent;
+							cursor: default;
+						}
+					}
+	
+				}
+			}
+		}
+
+		&.basemap-panel {
+			animation: fadeIn .2s .2s linear both;
+			padding: .7rem 0 .7rem 0;
+			.basemap-box {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				padding: .5rem .7rem;
+
+				&:hover {
+					background: $hover_color;
+				}
+
+				&.active {
+					img {
+						outline: 2px solid #fff;
+					}
+				}
+
+				img {
+					margin-right: .5rem;
+					cursor: pointer;
+					
+				}
+
+				.basemap-text {
+					p {
+						color: #fff;
+					}
+
+					.basemap-title {
+						font-weight: bold;
+						margin-bottom: 0;
+						font-size: 13px;
+						cursor: pointer;
+
+					}
+
+					.basemap-description {
+						// font-style: italic;
+						font-size: 11px;
+					}
+				}
+			}
+		}
+
+		&.bookmarks-panel {
+			animation: fadeIn .2s .2s linear both;
+			padding: 0;
+
+			.opacity-container {
+				position: sticky;
+				top: 57px;
+				// background: #2B2B2B;
+			}
+
+			.search-bookmarks-container {
+				position: sticky;
+				top: 0px;
+				padding: 20px 10px 10px 10px;
+				// background: #2B2B2B;				
+			}
+
+			.delete-bookmark {
+				float: right;
+				cursor: pointer;
+				margin-right: 10px;
+				color: $white_color;
+			}
+
+			.search-bookmarks {
+				width: 100%;
+				border: none;
+				background: transparent;
+				outline: none;
+				padding: 5px 0;
+				border-bottom: 1px solid rgba($white_color, .7);
+				position: sticky;
+				top: 0;
+				color: $white_color;
+			
+
+				&::placeholder {
+					color: $white_color;
+				}
+			}
+
+			.opacity-value-thumb {
+				font-size: 11px;
+				color: #000;
+				font-weight: bold;
+				width: 35px;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+			}
+
+			.ui.toggle.checkbox input:checked~.box:before, .ui.toggle.checkbox input:checked~label:before {
+				background-color: rgba(#fff, .5) !important;
+			}
+		
+			.ui.toggle.checkbox input:checked~.box:after, .ui.toggle.checkbox input:checked~label:after {
+				color: #fff !important;
+			}
+			.ui > label, .ui.toggle.checkbox input:focus:checked~.box, .ui.toggle.checkbox input:focus:checked~label {
+				color: #fff !important;
+			}
+			.ui.toggle.checkbox input:checked~.box, .ui.toggle.checkbox input:checked~label {
+				color: #fff !important;
+			}
+		
+			.ui.toggle.checkbox .box:before, .ui.toggle.checkbox label:before {
+				background-color: rgba(#fff, .5)
+			}
+		
+			.ui.toggle.checkbox input:focus~.box:before, .ui.toggle.checkbox input:focus~label:before {
+				background-color: rgba(#fff, .5)
+			}
+
+			ul {
+				list-style: none !important;
+				padding: 0;
+				max-height: 400px;
+				overflow-y: auto;
+
+				li {
+					padding: 10px 5px;
+				margin-right: 5px;
+				margin-left: 5px;
+				color: #fff;
+				list-style: none;
+				cursor: pointer;
+
+					.bookmark-title, .bookmark-description {
+						color: rgba($white_color, 1);
+						font-weight: bold;
+						margin: 0;
+					}
+
+					.bookmark-description {
+						color: $description_color;
+					}
+
+					&.active {
+						background:rgba(#fff, .3);
+					}
+	
+					&:hover {
+						background:rgba(#fff, .3);
+						&.no-hover {
+							background: transparent;
+							cursor: default;
+						}
+					}
+	
+				}
+			}
+		}
+	}
+}
