@@ -13,7 +13,7 @@ class BookmarkPanel extends React.Component {
 	}
 
 	goToBookmark(value) {
-		window.open(value, "_blank")
+		window.open(value.href, "_blank")
 	}
 
 	deleteBookmark(id) {

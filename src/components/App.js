@@ -11,7 +11,6 @@ import $params from '../services/$params';
 import { Button, ButtonGroup, Loader, Search } from 'semantic-ui-react';
 
 import Map from './map/Map';
-import WWDMap from './wwd-map/WWDMap';
 import axios from 'axios';
 import Toolbar from './toolbar/Toolbar';
 import Timeline from './timeline/Timeline';
@@ -47,8 +46,7 @@ class App extends React.Component {
 		bookmarkModal: false,
 		bookmarkValue: '',
 		panel: window.innerWidth >= 768 ? 'twitter' : null,
-		_3d: false,
-		_wwd_3d: false
+		_3d: false
 
 	}
 
@@ -62,7 +60,7 @@ class App extends React.Component {
 			let layerObj = this.state.layers.filter(l => l.name === newState.layer)[0];
 
 			newState.time = layerObj.timeRange ? layerObj.timeRange[layerObj.timeRange.length - 1] : null;
-	
+
 			newState.timeParam = layerObj.timeParam;
 
 			newState.depth = layerObj.depthRange ? layerObj.depthRange[0] : null;
@@ -275,10 +273,9 @@ class App extends React.Component {
 			)
 		}
 
-		let { _wwd_3d } = this.state;
-		const mapType = (!this.state._3d && !this.state._wwd_3d) ? "geoh-cesium" : this.state._3d ? "geoh-cesium" : "wwd_3d";
+		const mapType = !this.state._3d ? "geoh-cesium" : "geoh-cesium";
 
-		if (this.state.comparison && !this.state._3d && !this.state._wwd_3d) {
+		if (this.state.comparison && !this.state._3d) {
 			return (
 				<div className="app-container">
 
@@ -297,20 +294,6 @@ class App extends React.Component {
 						center={this.state.center}
 						opacity={this.state.opacity}
 						onUpdateState={this.updateState} />
-
-					{/* <WWDMap className={mapType}
-						comparison={this.state.comparison}
-						base={this.state.base}
-						layers={this.state.layers}
-						layer={this.state.layer}
-						layer2={this.state.layer2}
-						time={this.state.time}
-						time2={this.state.time2}
-						zoom={this.state.zoom}
-						eye={this.state.eye}
-						center={this.state.center}
-						opacity={this.state.opacity}
-						onUpdateState={this.updateState} /> */}
 
 					<LayerSelector
 						isSecond={false}
@@ -343,8 +326,7 @@ class App extends React.Component {
 
 		return (
 			<div className="app-container">
-
-				{!this.state._wwd_3d && <Map className={mapType}
+				<Map className={mapType}
 					sidebar={this.state.sidebar}
 					comparison={this.state.comparison}
 					base={this.state.base}
@@ -362,28 +344,7 @@ class App extends React.Component {
 					opacity={this.state.opacity}
 					pinCoordinates={this.state.pinCoordinates}
 					_3d={this.state._3d}
-					_wwd_3d={this.state._wwd_3d}
-					onUpdateState={this.updateState} />}
-
-				{this.state._wwd_3d && <WWDMap className={mapType}
-					sidebar={this.state.sidebar}
-					comparison={this.state.comparison}
-					base={this.state.base}
-					layers={this.state.layers}
-					layer={this.state.layer}
-					layer2={this.state.layer2}
-					time={this.state.time}
-					time2={this.state.time2}
-					training_points={this.state.training_points}
-					uncertainty={this.state.uncertainty}
-					zoom={this.state.zoom}
-					eye={this.state.eye}
-					center={this.state.center}
-					opacity={this.state.opacity}
-					pinCoordinates={this.state.pinCoordinates}
-					_3d={this.state._3d}
-					_wwd_3d={this.state._wwd_3d}
-					onUpdateState={this.updateState} />}
+					onUpdateState={this.updateState} />
 
 				{/* <Legend layer={this.state.layer} uncertainty={this.state.uncertainty} layers={this.state.layers} onUpdateState={this.updateState} /> */}
 
@@ -424,7 +385,7 @@ class App extends React.Component {
 
 				<AboutModal visible={this.state.aboutModal} cancel={() => this.setState({ aboutModal: false })} />
 				<CreditsModal visible={this.state.creditsModal} cancel={() => this.setState({ creditsModal: false })} />
-				<BookmarkModal visible={this.state.bookmarkModal}  currentUrl={'http://127.0.0.1:3030/' + window.location.search} cancel={() => this.setState({bookmarkModal: false})} onUpdateState={this.updateState}/>
+				<BookmarkModal visible={this.state.bookmarkModal} currentUrl={window.location} cancel={() => this.setState({ bookmarkModal: false })} onUpdateState={this.updateState} />
 
 			</div>
 		)

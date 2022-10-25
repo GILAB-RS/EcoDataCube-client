@@ -157,7 +157,7 @@ class Map extends React.Component {
 		let scene = this.map3d.getCesiumScene();
 		scene.terrainProvider = Cesium.createWorldTerrain({ requestVertexNormals: true });
 
-		if(this.props._3d) {
+		if (this.props._3d) {
 			this.map3d.setEnabled(this.props._3d);
 		}
 
@@ -302,12 +302,12 @@ class Map extends React.Component {
 
 		}
 
-		if(prevProps.depth !== this.props.depth) {
+		if (prevProps.depth !== this.props.depth) {
 			$map.updateDepth(this.props.depth, this.props.layer, this.uncertainty);
 			$map.updateDepth(this.props.depth, this.props.layer, this.layers);
 		}
 
-		if(prevProps.depth2 !== this.props.depth2) {
+		if (prevProps.depth2 !== this.props.depth2) {
 			$map.updateDepth(this.props.depth2, this.props.layer2, this.comparison);
 		}
 
@@ -441,7 +441,7 @@ class Map extends React.Component {
 		let layerObj = this.props.layers.filter(l => l.name === layerName)[0];
 		let lonlat = toLonLat(coords);
 		let sld = layerObj.sld;
-		if(this.props.uncertainty) {
+		if (this.props.uncertainty) {
 			let formated = $data.formatForUncertainty(layerObj.sld);
 
 			sld = formated.indexOf('.sld') > -1 ? formated : formated + '.sld';
@@ -576,18 +576,18 @@ class Map extends React.Component {
 			wasabi_link = wasabi_link.replace('_*_', `_${this.props.time}_`);
 		}
 
-		if(layer.timeScale === 'season-3') {
+		if (layer.timeScale === 'season-3') {
 			timeLabel = this.props.time.slice(0, 4) + ' - ' + seasons[this.props.time.slice(4, 6)];
-			wasabi_link = wasabi_link.replace('_*_', `_${this.props.time.slice(0,4) + '.' + this.props.time.slice(4,6)}_`)
+			wasabi_link = wasabi_link.replace('_*_', `_${this.props.time.slice(0, 4) + '.' + this.props.time.slice(4, 6)}_`)
 		}
 
 		if (layer.timeScale === 'month') {
 			console.log(layer)
 			timeLabel = layer.timeScale === 'year' ? this.props.time : this.props.time.slice(0, 4) + ' - ' + moment(this.props.time.slice(4, 6)).format('MMMM')
-			wasabi_link = wasabi_link.replace('_*_', `_${this.props.time.slice(0,4) + '.' + this.props.time.slice(4,6)}_`)
+			wasabi_link = wasabi_link.replace('_*_', `_${this.props.time.slice(0, 4) + '.' + this.props.time.slice(4, 6)}_`)
 		}
 
-		if(layer.depthRange) {
+		if (layer.depthRange) {
 
 			timeLabel = this.props.time + ` [${this.props.depth} cm]`;
 			wasabi_link = wasabi_link.replace('{estimation_type}', this.props.uncertainty ? 'md' : 'm').replace('{depth}', `s${this.props.depth}..${this.props.depth}cm`).replace('{year}', this.props.time);
@@ -644,14 +644,10 @@ class Map extends React.Component {
 						<Button onClick={() => { this.map.getView().animate({ zoom: this.map.getView().getZoom() - 0.5, duration: 250 }) }} icon="minus"></Button>
 						<Button onClick={() => this.setState({ geolocation: !this.state.geolocation })} className={this.state.geolocation ? 'active-geolocation' : ''} icon="location arrow"></Button>
 						{this.props._3d ?
-							<Button onClick={() => { this.props.onUpdateState({ _3d: false, wwd_3d: false }) }} className="three-d-icon">2D</Button>
+							<Button onClick={() => { this.props.onUpdateState({ _3d: false }) }} className="three-d-icon">2D</Button>
 							:
-							<Button onClick={() => { this.props.onUpdateState({ _3d: true, _wwd_3d: false }) }} className="three-d-icon"><img width="20" style={{color: '#fff'}} src="/assets/cesium.svg" /></Button>
+							<Button onClick={() => { this.props.onUpdateState({ _3d: true }) }} className="three-d-icon"><img width="20" style={{ color: '#fff' }} src="/assets/cesium.svg" /></Button>
 						}
-
-						{this.props._wwd_3d ? 
-						<Button onClick={() => { this.props.onUpdateState({ _3d: false, _wwd_3d: false }) }} className="three-d-icon">2D</Button>:
-						<Button onClick={() => { this.props.onUpdateState({ _3d: false, _wwd_3d: true }) }} className="three-d-icon"><img width="30" style={{color: '#fff'}} src="/assets/wwd.svg" /></Button>}
 					</div>
 
 					<div className="cesium-credits" id="cesium-credits"></div>
