@@ -23,6 +23,8 @@ const CreditsModal = (props) => {
 						<div className='col s12 text_center'>
 						<a href="https://ec.europa.eu/inea/en/connecting-europe-facility/cef-telecom/2018-eu-ia-0095" target="_blank">
 						<h3>CEF Telecom project 2018-EU-IA-0095. This project is co-financed by the European Union.</h3>							</a>
+
+						<h3 className='text_white'>This work has also received funding from the European Union's Horizon Europe research and innovation programme under grant agreement No. 101059548.</h3>
 								
 						</div>
 						</div>

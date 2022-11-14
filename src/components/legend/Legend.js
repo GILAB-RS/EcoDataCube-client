@@ -82,6 +82,10 @@ class Legend extends React.Component {
 	}
 
 	render() {
+		if(this.props.layer === 'RGB Sentinel-2 (3 months)') {
+			return null
+		}
+
 		return (
 			<div className={"legend-container" + (this.props.right ? ' is-right' : '') + (this.props.isComparison ? ' comparison' : '')}>
 				<div style={{position: 'relative'}}>
