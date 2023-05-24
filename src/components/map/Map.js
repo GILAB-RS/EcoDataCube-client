@@ -6,7 +6,7 @@ import { fromLonLat, toLonLat, transform } from 'ol/proj';
 import React from 'react';
 import Wrapper from '../wrapper/Wrapper';
 import $map from '../../services/$map';
-import { Button, Checkbox, Icon } from 'semantic-ui-react';
+import { Button, Checkbox, Icon, Popup } from 'semantic-ui-react';
 import CompareSlider from '../ui/CompareSlider';
 import { getRenderPixel } from 'ol/render';
 import { unByKey } from 'ol/Observable';
@@ -638,15 +638,15 @@ class Map extends React.Component {
 					<img width="200" src={'/assets/ods_logo_dev.svg'} />
 				</a> */}
 					<div className={"map-tool-buttons" + (this.props.comparison ? ' comparison' : '')}>
-						<Button onClick={() => { window.location.assign('https://maps.opendatascience.eu/') }} icon="home"></Button>
-						<Button onClick={() => { this.map.getView().animate({ zoom: 4, center: fromLonLat(defaultValues.defaultState.center), duration: 500 }) }} icon="compass"></Button>
-						<Button onClick={() => { this.map.getView().animate({ zoom: this.map.getView().getZoom() + 0.5, duration: 250 }) }} icon="plus"></Button>
-						<Button onClick={() => { this.map.getView().animate({ zoom: this.map.getView().getZoom() - 0.5, duration: 250 }) }} icon="minus"></Button>
-						<Button onClick={() => this.setState({ geolocation: !this.state.geolocation })} className={this.state.geolocation ? 'active-geolocation' : ''} icon="location arrow"></Button>
+						<Popup position='right center' content="Home" trigger={<Button onClick={() => { window.location.assign('https://maps.opendatascience.eu/') }} icon="home"></Button>}></Popup>
+						<Popup position='right center' content="Zoom to extent" trigger={<Button onClick={() => { this.map.getView().animate({ zoom: 4, center: fromLonLat(defaultValues.defaultState.center), duration: 500 }) }} icon="compass"></Button>}></Popup>
+						<Popup position='right center' content="Zoom In" trigger={<Button onClick={() => { this.map.getView().animate({ zoom: this.map.getView().getZoom() + 0.5, duration: 250 }) }} icon="plus"></Button>}></Popup>
+						<Popup position='right center' content="Zoom Out" trigger={<Button onClick={() => { this.map.getView().animate({ zoom: this.map.getView().getZoom() - 0.5, duration: 250 }) }} icon="minus"></Button>}></Popup>
+						<Popup position='right center' content={this.state.geolocation ? "Turn off geolocation" : "Turn on geolocation"} trigger={<Button onClick={() => this.setState({ geolocation: !this.state.geolocation })} className={this.state.geolocation ? 'active-geolocation' : ''} icon="location arrow"></Button>}></Popup>
 						{this.props._3d ?
-							<Button onClick={() => { this.props.onUpdateState({ _3d: false }) }} className="three-d-icon">2D</Button>
+							<Popup position='right center' content="Toggle 2D view" trigger={<Button onClick={() => { this.props.onUpdateState({ _3d: false }) }} className="three-d-icon">2D</Button>}></Popup>
 							:
-							<Button onClick={() => { this.props.onUpdateState({ _3d: true }) }} className="three-d-icon"><img width="20" style={{ color: '#fff' }} src="/assets/cesium.svg" /></Button>
+							<Popup position='right center' content="Toggle 3D view" trigger={<Button onClick={() => { this.props.onUpdateState({ _3d: true }) }} className="three-d-icon"><img width="20" style={{ color: '#fff' }} src="/assets/cesium.svg" /></Button>}></Popup>
 						}
 					</div>
 
