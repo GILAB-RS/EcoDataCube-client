@@ -47,7 +47,7 @@ class TwitterPanel extends React.Component {
 				<div className={"twitter-container" + (this.state.hidden ? ' hidden' : '') }>
 					<TwitterTimelineEmbed
 						sourceType="profile"
-						screenName="HarmonizerGeo"
+						screenName="opengeohub"
 						transparent={true}
 						theme={'dark'}
 						noBorders
