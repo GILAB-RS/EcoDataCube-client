@@ -20,7 +20,7 @@ const AboutContent = (
 		<div className="row">
 			<div className="col s12">
 				<p style={{fontWeight: 'bold', marginBottom: 25}} className="text_link text_center">
-					Version: 0.0.1-1
+					Version: 0.0.2
 				</p>						
 			</div>
 		</div>
