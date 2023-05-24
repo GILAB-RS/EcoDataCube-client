@@ -25,6 +25,15 @@ const AboutContent = (
 			</div>
 		</div>
 		<div className="row">
+			<div className='col s12'>
+				<p className='text_white'>
+				The
+Open-Earth-Monitor Cyberinfratructure project has received funding from
+the European Union's Horizon Europe research and innovation programme
+under grant agreement <a href="https://cordis.europa.eu/project/id/101059548" target="_blank">No. 101059548</a>.
+				</p>
+				<br/>
+			</div>
 			<div className="col s12">
 				<p className="text_white">
 				<ALink href="https://ecodatacube.eu/"><strong>Open Environmental Data Cube</strong> hosted at ecodatacube.eu</ALink> comprises environmental, land cover, terrain, climatic, soil and vegetation layers covering the continental Europe at relatively fine spatial resolutions (30-m to 1-km). It has been produced within the CEF Telecom project <ALink href="https://ec.europa.eu/inea/en/connecting-europe-facility/cef-telecom/2018-eu-ia-0095">2018-EU-IA-0095</ALink>: <strong>“Geo-harmonizer: EU-wide automated mapping system for harmonization of Open Data based on FOSS4G and Machine”</strong>. Use it to visualize and serve spatiotemporal datasets for the periods 2000–2020 and beyond and share it with your colleagues. Predictions are typically based on using Ensemble Machine Learning applied to large spatiotemporal training datasets, often derived through other European Commission funded projects such as the <ALink href="https://ec.europa.eu/eurostat/web/lucas">LUCAS</ALink> (Land Use and Coverage Area frame Survey), and the <ALink href="https://land.copernicus.eu/">Copernicus Land Monitoring Service</ALink>. The Earth Observation data used to generate predictions is primarily based on the <ALink href="https://www.glad.umd.edu/ard/home">GLAD Landsat ARD imagery</ALink> and <ALink href="https://sentinel.esa.int/web/sentinel/sentinel-data-access">ESA Sentinel</ALink> products. To report an issue or a bug please use <ALink href="https://gitlab.com/geoharmonizer_inea/spatial-layers">gitlab</ALink>. Have a new similar data set that you would like to publish on the ecodatacube.eu data portal? Please <ALink href="https://opendatascience.eu/contact-us/">contact us.</ALink>				</p>
