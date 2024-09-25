@@ -16,6 +16,8 @@ class $data {
 
 				try {
 					// let list = result.data.filter(l => l.title !== 'AQ PM2.5' && l.title !== 'AQ PM2.5 count pixels').map(layer => {
+						console.table(result.data.map(layer => ({title: layer.title, name: layer.gs_name})).filter(obj => obj.title.indexOf('NDVI') > -1))
+
 					let list = result.data.filter(layer => layer.title !== null).map(layer => {
 							let range = null;
 							let depthRange = null;
@@ -61,10 +63,10 @@ class $data {
 						
 						}
 						if(layer.scale === 'season-3') {
-							console.log('=====================================')
-							console.log(layer)
-							console.log(layer.filename_pattern);
-							console.log(layer.scale)
+							// console.log('=====================================')
+							// console.log(layer)
+							// console.log(layer.filename_pattern);
+							// console.log(layer.scale)
 						}
 						
 
@@ -97,14 +99,15 @@ class $data {
 						}
 					});	
 
-					let filtered = list.filter(l => l.geoserver_name !== 'gh:lcv-ndvi-landsatXgladXard-p50-30m' && l.geoserver_name !== 'gh:lcv-rgb-landsatXgladXard-p50-30m'  && l.geoserver_name !== 'gh:lcv_point_samples')
-					let ndvi = list.filter(l => l.geoserver_name === 'gh:lcv-ndvi-landsatXgladXard-p50-30m')[0];
+					let filtered = list.filter(l => l.geoserver_name !== 'gh:lcv-ndvi-landsatXgladXard-p50-30m-0XX0cm--eumap-epsg3035-v1X0' && l.geoserver_name !== 'gh:lcv-rgb-landsatXgladXard-p50-30m'  && l.geoserver_name !== 'gh:lcv_point_samples')
+					let ndvi = list.filter(l => l.geoserver_name === 'gh:lcv-ndvi-landsatXgladXard-p50-30m-0XX0cm--eumap-epsg3035-v1X0')[0];
+
 					let ndviRange = ndvi.timeRange.split(",");
 					
-					filtered.push(Object.assign({}, {...ndvi,filter: '&season=03',timeRange: ndviRange.map(v => v + '03'), name: ndvi.title + ' - spring', title: ndvi.title + ' - Spring', suffix: ' - Spring'}));
-					filtered.push(Object.assign({}, {...ndvi,filter: '&season=06',timeRange: ndviRange.map(v => v + '06'), name: ndvi.title + ' - summer', title: ndvi.title + ' - Summer', suffix: ' - Summer'}));
-					filtered.push(Object.assign({}, {...ndvi,filter: '&season=09',timeRange: ndviRange.map(v => v + '09'), name: ndvi.title + ' - autumn', title: ndvi.title + ' - Autumn', suffix: ' - Autumn'}));
-					filtered.push(Object.assign({}, {...ndvi,filter: '&season=12',timeRange: ndviRange.map(v => v + '12'), name: ndvi.title + ' - winter', title: ndvi.title + ' - Winter', suffix: ' - Winter'}));
+					filtered.push(Object.assign({}, {...ndvi, geoserver_name: 'gh:lcv-ndvi-landsatXgladXard-p50-30m',filter: '&season=03',timeRange: ndviRange.map(v => v + '03'), name: ndvi.title + ' - spring', title: ndvi.title + ' - Spring', suffix: ' - Spring'}));
+					filtered.push(Object.assign({}, {...ndvi, geoserver_name: 'gh:lcv-ndvi-landsatXgladXard-p50-30m',filter: '&season=06',timeRange: ndviRange.map(v => v + '06'), name: ndvi.title + ' - summer', title: ndvi.title + ' - Summer', suffix: ' - Summer'}));
+					filtered.push(Object.assign({}, {...ndvi, geoserver_name: 'gh:lcv-ndvi-landsatXgladXard-p50-30m',filter: '&season=09',timeRange: ndviRange.map(v => v + '09'), name: ndvi.title + ' - autumn', title: ndvi.title + ' - Autumn', suffix: ' - Autumn'}));
+					filtered.push(Object.assign({}, {...ndvi, geoserver_name: 'gh:lcv-ndvi-landsatXgladXard-p50-30m',filter: '&season=12',timeRange: ndviRange.map(v => v + '12'), name: ndvi.title + ' - winter', title: ndvi.title + ' - Winter', suffix: ' - Winter'}));
 					return filtered
 				} catch(err) {
 					let layers = window.localStorage.getItem('layers');
